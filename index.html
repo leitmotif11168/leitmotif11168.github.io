@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MTG Replacement Effects Calculator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>Token Replacement Effects Calculator</h1>
+      <p class="sub">Chatterfang • Academy Manufactor • Peregrin Took • Parallel Lives • Doubling Season</p>
+    </header>
+
+    <section class="card">
+      <h2>1) Select active effects</h2>
+      <div class="effects-grid">
+        <label class="switch">
+          <input type="checkbox" id="chatterfang" />
+          <span>Chatterfang, Squirrel General</span>
+        </label>
+        <label class="switch">
+          <input type="checkbox" id="manufactor" />
+          <span>Academy Manufactor</span>
+        </label>
+        <label class="switch">
+          <input type="checkbox" id="peregrin" />
+          <span>Peregrin Took</span>
+        </label>
+        <label class="switch">
+          <input type="checkbox" id="parallel" />
+          <span>Parallel Lives</span>
+        </label>
+        <label class="switch">
+          <input type="checkbox" id="doubling" />
+          <span>Doubling Season</span>
+        </label>
+      </div>
+      <p class="hint">Order applied: <strong>Peregrin Took → Academy Manufactor → Chatterfang → doublers</strong>.</p>
+    </section>
+
+    <section class="card">
+      <h2>2) Add starting tokens (same event)</h2>
+
+      <div id="rows"></div>
+
+      <div class="row-actions">
+        <button id="addRow" class="btn">+ Add token</button>
+        <button id="reset" class="btn btn-ghost">Reset</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>3) Result</h2>
+      <div id="result" class="result"></div>
+      <div id="explain" class="explain"></div>
+    </section>
+
+    <footer class="footer">
+      <details>
+        <summary>Rules notes (tap to expand)</summary>
+        <ul>
+          <li>All listed cards use replacement effects. For a single event, each applies at most once.</li>
+          <li><strong>Peregrin Took</strong>: add one Food to the event if any tokens would be created.</li>
+          <li><strong>Academy Manufactor</strong>: if the event would create <em>N</em> total Food/Clue/Treasure, replace those with <em>N</em> of each (Food + Clue + Treasure).</li>
+          <li><strong>Chatterfang</strong>: add Squirrels equal to the total number of tokens the event would create.</li>
+          <li><strong>Parallel Lives / Doubling Season</strong>: each doubles all tokens from the event; together they quadruple them.</li>
+        </ul>
+      </details>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
